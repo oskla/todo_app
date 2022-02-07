@@ -9,16 +9,13 @@ import {
   ImageBackground,
   TouchableWithoutFeedback,
   Keyboard,
-  Button,
 } from "react-native";
 import ListItem from "./ListItem";
 import Header from "./Header";
 import { StatusBar } from "expo-status-bar";
 import * as Animatable from "react-native-animatable";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import AppLoading from "expo-app-loading";
-import { AntDesign } from "@expo/vector-icons";
-import { ContextName } from "../App";
+import { ContextName } from "./Context";
 
 const List = ({ navigation }) => {
   const { listItem, setListItem } = useContext(ContextName);
@@ -194,29 +191,9 @@ const List = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.bottom}>
-          {/* <Text>data:{storage}</Text> */}
-          <View style={styles.saveButton}>
-            <Pressable
-              title="Upload"
-              style={styles.goBackButton}
-              onPress={() => storeData(listItem)}
-            >
-              <AntDesign name="cloudupload" size={30} color="#F9EDD2" />
-            </Pressable>
-          </View>
           <View style={styles.kanyeQuotes}>
-            {/* <Text>hajhaj</Text> */}
             <Text style={styles.kanyeText}>Random Kanye-quote:</Text>
             <Text style={styles.kanyeText}>{quote}</Text>
-          </View>
-          <View style={styles.loadButton}>
-            <Pressable
-              title="download data"
-              style={styles.goBackButton}
-              onPress={() => getData()}
-            >
-              <AntDesign name="clouddownload" size={30} color="#F9EDD2" />
-            </Pressable>
           </View>
         </View>
       </ImageBackground>
@@ -231,52 +208,34 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 9,
     paddingHorizontal: 30,
-    // borderWidth: 1,
   },
   container: {
     flex: 10,
-    // paddingTop: 20,
   },
 
   top: {
     flex: 1,
 
     marginTop: 20,
-    // borderWidth: 1,
-    // borderColor: "#FF9C9E",
   },
   middle: {
     flex: 5,
     paddingTop: 15,
-    // paddingBottom: 15,
   },
   headerText: {
     color: "#FF9C9E",
   },
   bottom: {
-    // display: "none",
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     marginHorizontal: 20,
     textAlign: "center",
-    // borderWidth: 1,
-  },
-  saveButton: {
-    flex: 1,
-    alignItems: "flex-start",
-  },
-  loadButton: {
-    flex: 1,
-    alignItems: "flex-end",
   },
   kanyeQuotes: {
     flex: 6,
-
     padding: 10,
-
-    // borderWidth: 1,
   },
 
   bottomIfLongList: {
@@ -305,7 +264,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   pressable: {
-    // backgroundColor: "#456",
     alignItems: "center",
     padding: 8,
     borderRadius: 8,
@@ -313,7 +271,6 @@ const styles = StyleSheet.create({
   },
 
   kanyeText: {
-    // fontFamily: "Roboto",
     fontFamily: "poppins-Regular",
     fontSize: 12,
     color: "#EEC046",

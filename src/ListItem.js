@@ -27,7 +27,6 @@ const ListItem = ({ item, pressHandler }) => {
     return (
       <TouchableOpacity onPress={() => setItemPressed(changeLayout)}>
         {/* Change layout when pressed */}
-
         <View
           style={itemPressed == true ? styles.listItemPressed : styles.listItem}
           onPress={styles.itemText2}

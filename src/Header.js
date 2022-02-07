@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Pressable,
-  ImageBackground,
-} from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
-import * as Animatable from "react-native-animatable";
+import { StyleSheet, View, Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 const Header = ({ navigation }) => {
   return (
@@ -43,7 +35,6 @@ export default Header;
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    //     backgroundColor: "#FF9C9E",
     alignItems: "flex-end",
     justifyContent: "center",
     flexDirection: "row",
@@ -58,17 +49,14 @@ const styles = StyleSheet.create({
   goBackButton: {
     height: 30,
     width: 30,
-    // backgroundColor: "#FF9C9E",
   },
   homeButton: {
     height: 30,
     width: 30,
-    // backgroundColor: "#FF9C9E",
   },
   menuButton: {
     height: 30,
     width: 30,
-    // backgroundColor: "#FF9C9E",
     paddingTop: 2,
   },
 });

@@ -4,17 +4,15 @@ import {
   Text,
   View,
   ImageBackground,
-  Button,
   Platform,
   Image,
   Pressable,
 } from "react-native";
 import Header from "./Header";
 import * as Animatable from "react-native-animatable";
-import { ContextName } from "../App";
 
 const HomeScreen = ({ navigation }) => {
-  const { listItem, setListItem } = useContext(ContextName);
+  // const { listItem, setListItem } = useContext(ContextName);
 
   return (
     <ImageBackground
