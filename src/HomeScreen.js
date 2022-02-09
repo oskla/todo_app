@@ -30,24 +30,42 @@ const HomeScreen = ({ navigation }) => {
       </Animatable.View>
       <View style={styles.container}>
         <View style={styles.whatList}>
-          <View style={styles.shoppingList}>
+          <Animatable.View
+            style={styles.shoppingList}
+            animation="flipInY"
+            duration={1000}
+            direction="normal"
+          >
             <Text style={styles.text}>Shopping list</Text>
-            <Pressable onPress={() => navigation.navigate("List")} title="List">
+            <Pressable
+              onPress={() => navigation.navigate("List")}
+              title="List"
+              style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
+            >
               <Image
                 source={require("../assets/shoppingcart.png")}
                 style={{ height: 190, width: 266 }}
               />
             </Pressable>
-          </View>
-          <View style={styles.tasks}>
+          </Animatable.View>
+          <Animatable.View
+            style={styles.tasks}
+            animation="flipInX"
+            duration={1000}
+            direction="normal"
+          >
             <Text style={styles.text}>Tasks</Text>
-            <Pressable onPress={() => navigation.navigate("Todo")} title="Todo">
+            <Pressable
+              onPress={() => navigation.navigate("Todo")}
+              title="Todo"
+              style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
+            >
               <Image
                 source={require("../assets/tasks.png")}
                 style={{ height: 190, width: 266 }}
               />
             </Pressable>
-          </View>
+          </Animatable.View>
         </View>
 
         <View style={{ marginBottom: 5 }}>
@@ -104,4 +122,5 @@ const styles = StyleSheet.create({
     fontSize: 12,
     textAlign: "center",
   },
+  button: {},
 });

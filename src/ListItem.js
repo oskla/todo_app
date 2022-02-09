@@ -27,18 +27,22 @@ const ListItem = ({ item, pressHandler }) => {
     return (
       <TouchableOpacity onPress={() => setItemPressed(changeLayout)}>
         {/* Change layout when pressed */}
-        <View
+        <Animatable.View
           style={itemPressed == true ? styles.listItemPressed : styles.listItem}
           onPress={styles.itemText2}
+          animation="bounceInLeft"
+          duration={600}
+          iterationCount={1}
+          direction="normal"
         >
           {/* TouchableOpacity = Remove-button  */}
           <TouchableOpacity onPress={() => pressHandler(item.key)}>
             <View style={{ padding: 10 }}>
               <Animatable.View
-                animation="lightSpeedIn"
+                animation="slideInLeft"
                 duration={500}
                 iterationCount={1}
-                direction="normal"
+                direction="alternate"
               >
                 <FontAwesome name="trash-o" size={18} color="#F9EDD2" />
               </Animatable.View>
@@ -52,7 +56,7 @@ const ListItem = ({ item, pressHandler }) => {
           >
             {item.text}
           </Text>
-        </View>
+        </Animatable.View>
       </TouchableOpacity>
     );
   }

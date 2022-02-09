@@ -52,15 +52,11 @@ const Todo = ({ navigation }) => {
   const SubmitHandler = (text) => {
     const randomNum = Math.random().toString();
     if (text.length > 0) {
-      return (
-        setTodo((prevTodo) => {
-          return [{ text: text, key: randomNum }, ...prevTodo];
-        }),
-        // Add to async-storage onSubmit
-        storeData([{ text: text, key: randomNum }, ...todo])
-      );
-    } else {
-      return;
+      return setTodo((prevTodo) => {
+        const temp = [{ text: text, key: randomNum }, ...prevTodo];
+        storeData(temp); // Add to async-storage onSubmit
+        return temp;
+      });
     }
   };
 

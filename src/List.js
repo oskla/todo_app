@@ -68,15 +68,11 @@ const List = ({ navigation }) => {
   const SubmitHandler = (text) => {
     const randomNum = Math.random().toString();
     if (text.length > 0) {
-      return (
-        setListItem((prevListItem) => {
-          return [{ text: text, key: randomNum }, ...prevListItem];
-        }),
-        // Add to async-storage onSubmit
-        storeData([{ text: text, key: randomNum }, ...listItem])
-      );
-    } else {
-      return;
+      return setListItem((prevListItem) => {
+        const temp = [{ text: text, key: randomNum }, ...prevListItem];
+        storeData(temp); // Add to async-storage onSubmit
+        return temp;
+      });
     }
   };
 
@@ -110,7 +106,7 @@ const List = ({ navigation }) => {
         <Animatable.View
           style={{ flex: 1.3 }}
           animation="slideInDown"
-          duration={700}
+          duration={1000}
           direction="normal"
         >
           <Header navigation={navigation} />
@@ -121,7 +117,7 @@ const List = ({ navigation }) => {
               <Animatable.View
                 style={{ flex: 1 }}
                 animation="slideInLeft"
-                duration={700}
+                duration={1000}
                 direction="normal"
               >
                 <View style={styles.textInputWrapper}>
